@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App | Odin</title>
-</head>
-<body>
-  <script src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/styles.css">
+    <title>Weather App | Odin</title>
+  </head>
+  <body>
+    <div class="current-weather">
+      <div class="weather-info">
+        <div class="description"></div>
+        <div class="location"></div>
+        <div class="date"></div>
+        <div class="time"></div>
+        <div class="icon"></div>
+        <div class="temperature"></div>
+        <div id="display-f">Display °F</div>
+        <div class="hide" id="display-c">Display °C</div>
+        <input
+          type="text"
+          placeholder="Search Location..."
+          id="location-input"
+        />
+      </div>
+    </div>
+    <div class="forecast">
+
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>

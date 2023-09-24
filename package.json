@@ -1,9 +1,15 @@
 {
   "private": true,
+  "repository": {
+    "url": "git+https://github.com/Mo2Hefny/odin-weather-app.git"
+  },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --mode=development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   },
