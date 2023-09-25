@@ -20,24 +20,268 @@
   color: var(--light);
   font-family: Poppins, sans-serif;
   box-sizing: border-box;
+  letter-spacing: 2px;
 }
 
 body::before {
   position: absolute;
   width: 100%;
   height: 100%;
+  left: 0;
+  top: 0;
   content: "";
   background: #0b0b0f50;
   z-index: -1;
   object-fit: cover;
+  object-position: center;
 }
 
 body {
   position: relative;
   background: #0b0b0fdd;
-  border: 2px solid red;
   min-height: 100vh;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5%;
 }
 
+/*
+  Current Weather
+*/
+.current-weather {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*
+  Weather Info:
+    description
+    location
+    date
+    time
+    icon
+    temperature
+    switch buttons
+    search input
+*/
+.weather-info {
+  padding: var(--pad-2);
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-info * {
+  font-weight: 500;
+  font-size: var(--p-1);
+  letter-spacing: 2px;
+}
+
+.weather-info .description {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 4.5px;
+}
+
+/* Setting */
+.weather-info .location {
+  font-weight: 600;
+  font-size: var(--title);
+}
+
+.weather-info .location,
+.weather-info .time {
+  margin-bottom: 0.5rem;
+}
+
+/* temperature */
+.temperature {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+}
+
+.weather-info .value {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+}
+
+.weather-info .icon {
+  width: 100px;
+  aspect-ratio: 1 / 1;
+  align-self: center;
+}
+
+/* Change Display */
+.weather-info .btn {
+  font-size: var(--p-2);
+}
+
+/* Search input */
+.weather-info input[type="text"] {
+  position: relative;
+  background: transparent;
+  outline: none;
+  border: none;
+  max-width: 200px;
+}
+
+.search {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.2rem;
+  max-width: 230px;
+}
+
+.search-icon {
+  fill: var(--light);
+  fill-rule: evenodd;
+  cursor: pointer;
+}
+
+.search:has(input[type="text"]) + span {
+  position: relative;
+  max-width: 230px;
+}
+
+.search:has(input[type="text"]) + span::after {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  content: "";
+  border-radius: 4px;
+  background-color: var(--light);
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+
+.search input[type="text"]::placeholder {
+  color: var(--light);
+  opacity: 0.8;
+}
+
+/* Search input on focus */
+.search:has(input[type="text"]:focus) + span::after {
+  width: 100%;
+  height: 4px;
+  opacity: 1;
+}
+
+/*
+  Forecast:
+    cards
+*/
+.forecast {
+  padding: var(--pad-2);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--pad-L);
+}
+
+.daily {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: var(--pad-L);
+  min-width: fit-content;
+}
+
+.daily::after {
+  position: absolute;
+  width: 4px;
+  height: 110%;
+  content: "";
+  background-color: var(--light);
+  border-radius: 4px;
+  top: 50%;
+  left: calc(100% + 1.5rem);
+  translate: -50% -50%;
+}
+
+.hourly {
+  display: flex;
+  justify-content: center;
+  gap: var(--pad-2);
+  overflow: auto;
+}
 /* Glass effects for cards */
+.card {
+  min-width: fit-content;
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: #0b0b0faa;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: var(--pad-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card .date {
+  font-weight: 600;
+  font-size: var(--p-1);
+  margin-bottom: 0.5rem;
+}
+
+.card .temperature {
+  align-items: center;
+}
+
+.card .icon {
+  width: 100px;
+  aspect-ratio: 1 / 1;
+  align-self: center;
+}
+
+.card .value {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.card .min-value {
+  font-weight: 500;
+  font-size: var(--small-1);
+}
+
+/*
+  Global Effects:
+    hide
+    buttons
+*/
+/* hide */
+.hide {
+  display: none;
+}
+
+/* buttons */
+.btn {
+  cursor: pointer;
+}
+
+.btn-clr-1 {
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.btn-clr-1:hover {
+  opacity: 1;
+}
+
+.active {
+  scale: 1.1;
+  backdrop-filter: blur(16px) saturate(400%);
+  box-shadow: 0 0 6px #eaede870;
+}
+
+.hourly::-webkit-scrollbar {
+  height: 6px;
+}
+
+.hourly::-webkit-scrollbar-thumb {
+  background-color: var(--light);
+}

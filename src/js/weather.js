@@ -1,5 +1,5 @@
-import countries from './countries.json';
-import timezones from './timezones.json';
+import countries from "./countries.json";
+import timezones from "./timezones.json";
 
 export const Weather = (() => {
   let weatherData;
@@ -38,24 +38,31 @@ export const Weather = (() => {
     console.log([country, state]);
     try {
       const key = "8bbb4795cc32474fa0b175201232309";
-      const requestURL = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${(state === undefined) ? country : state}&days=3&api=yes&alerts=no`;
+      const requestURL = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${
+        state === undefined ? country : state
+      }&days=3&api=yes&alerts=no`;
       const request = new Request(requestURL);
-      const dataString = await fetch(request);
-      const data = await dataString.json();
+      const response = await fetch(request);
+      if (!response.ok) throw new Error("Invalid country/city name.");
+      const data = await response.json();
       console.log(data);
-      if (data != undefined)
-        weatherData = data;
+      if (data != undefined) weatherData = data;
     } catch (error) {
       console.error(error);
     }
   };
 
   const getTemperateC = () => {
-    return weatherData['current']['feelslike_c'];
-  }
+    return weatherData["current"]["feelslike_c"];
+  };
+
+  const getData = () => {
+    return weatherData;
+  };
 
   return {
     fetchWeatherData,
     getTemperateC,
+    getData,
   };
 })();
