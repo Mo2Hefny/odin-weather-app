@@ -83,7 +83,7 @@ export const DOM = (() => {
       card.classList.add("card");
       const time = document.createElement("div");
       time.classList.add("time");
-      time.textContent = `${i + 1} ${i < 11 ? "am" : "pm"}`;
+      time.textContent = `${i % 12 + 1} ${i < 11 ? "am" : "pm"}`;
       const temperature = document.createElement("div");
       time.classList.add("temperature");
       const icon = document.createElement("div");
