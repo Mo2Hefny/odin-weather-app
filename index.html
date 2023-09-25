@@ -1,11 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App | Odin</title>
-</head>
-<body>
-  <script src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="icon" href="./cloudy.png">
+    <title>Weather App | Odin</title>
+  </head>
+  <body>
+    <div class="current-weather">
+      <div class="weather-info">
+        <div class="description"></div>
+        <div class="location"></div>
+        <div class="date"></div>
+        <div class="time"></div>
+        <div class="temperature">
+          <div class="icon"></div>
+          <div class="value"></div>
+        </div>
+        <div class="btn btn-clr-1" id="display-f">Display °F</div>
+        <div class="btn btn-clr-1 hide" id="display-c">Display °C</div>
+        <div class="search">
+          <input
+            type="text"
+            placeholder="Search Location..."
+            id="location-input"
+          />
+          <svg
+            class="search-icon"
+            id="search-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 512 512"
+          >
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+            />
+          </svg>
+        </div>
+        <span></span>
+      </div>
+      <div class="extra-info"></div>
+    </div>
+    <div class="forecast">
+      <div class="daily">
+        <div class="active card">
+          <div class="date"></div>
+          <div class="temperature">
+            <div class="icon"></div>
+            <div class="value"></div>
+            <div class="min-value"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="date"></div>
+          <div class="temperature">
+            <div class="icon"></div>
+            <div class="value"></div>
+            <div class="min-value"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="date"></div>
+          <div class="temperature">
+            <div class="icon"></div>
+            <div class="value"></div>
+            <div class="min-value"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hourly"></div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
