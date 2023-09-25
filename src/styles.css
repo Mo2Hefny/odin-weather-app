@@ -184,9 +184,10 @@ body {
 .daily {
   position: relative;
   display: flex;
-  justify-content: center;
-  gap: var(--pad-L);
-  min-width: fit-content;
+  gap: var(--pad-1);
+  justify-content: space-evenly;
+  width: 100%;
+  min-width: 600px;
 }
 
 .daily::after {
@@ -206,10 +207,12 @@ body {
   justify-content: center;
   gap: var(--pad-2);
   overflow: auto;
+  scroll-padding: 2rem;
 }
 /* Glass effects for cards */
 .card {
   min-width: fit-content;
+  width: 150px;
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: #0b0b0faa;
@@ -227,10 +230,6 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.card .temperature {
-  align-items: center;
-}
-
 .card .icon {
   width: 100px;
   aspect-ratio: 1 / 1;
@@ -246,6 +245,10 @@ body {
 .card .min-value {
   font-weight: 500;
   font-size: var(--small-1);
+}
+
+.hourly .card {
+  scale: 0.9;
 }
 
 /*

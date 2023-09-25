@@ -85,6 +85,7 @@ export const DOM = (() => {
       time.classList.add("time");
       time.textContent = `${i + 1} ${i < 11 ? "am" : "pm"}`;
       const temperature = document.createElement("div");
+      time.classList.add("temperature");
       const icon = document.createElement("div");
       icon.classList.add("icon");
       icon.style.background = `center / cover no-repeat url(${data[i]["condition"]["icon"]})`;

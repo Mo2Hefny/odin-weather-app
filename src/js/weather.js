@@ -38,7 +38,7 @@ export const Weather = (() => {
     console.log([country, state]);
     try {
       const key = "8bbb4795cc32474fa0b175201232309";
-      const requestURL = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${
+      const requestURL = `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${
         state === undefined ? country : state
       }&days=3&api=yes&alerts=no`;
       const request = new Request(requestURL);
