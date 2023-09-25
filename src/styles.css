@@ -205,14 +205,13 @@ body {
 .hourly {
   display: flex;
   justify-content: center;
-  gap: var(--pad-2);
+  gap: var(--pad-1);
   overflow: auto;
   scroll-padding: 2rem;
 }
 /* Glass effects for cards */
 .card {
-  min-width: fit-content;
-  width: 150px;
+  min-width: 180px;
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: #0b0b0faa;
