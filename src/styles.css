@@ -202,10 +202,8 @@ body {
 
 .hourly {
   display: flex;
-  justify-content: center;
   gap: var(--pad-1);
   overflow: auto;
-  padding-left: 100px;
 }
 /* Glass effects for cards */
 .card {
